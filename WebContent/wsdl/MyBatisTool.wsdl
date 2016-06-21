@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.hjy.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.hjy.com" xmlns:intf="http://service.hjy.com" xmlns:tns1="http://model.hjy.com" xmlns:tns2="http://session.ibatis.apache.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.hjy.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.hjy.com"/>
+   <import namespace="http://session.ibatis.apache.org"/>
+   <element name="main">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="argvs" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mainResponse">
+    <complexType/>
+   </element>
+   <element name="searchBooksWithAuthor">
+    <complexType>
+     <sequence>
+      <element name="author" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBooksWithAuthorResponse">
+    <complexType>
+     <sequence>
+      <element name="searchBooksWithAuthorReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBooksWithName">
+    <complexType>
+     <sequence>
+      <element name="bookName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBooksWithNameResponse">
+    <complexType>
+     <sequence>
+      <element name="searchBooksWithNameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBooksWithCategory">
+    <complexType>
+     <sequence>
+      <element name="category" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBooksWithCategoryResponse">
+    <complexType>
+     <sequence>
+      <element name="getBooksWithCategoryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postBooksInfo">
+    <complexType>
+     <sequence>
+      <element name="model" type="tns1:BooksModel"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postBooksInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="postBooksInfoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllBooksInfo">
+    <complexType/>
+   </element>
+   <element name="getAllBooksInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllBooksInfoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginIn">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginInResponse">
+    <complexType>
+     <sequence>
+      <element name="loginInReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllCategories">
+    <complexType/>
+   </element>
+   <element name="getAllCategoriesResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllCategoriesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSession">
+    <complexType/>
+   </element>
+   <element name="getSessionResponse">
+    <complexType>
+     <sequence>
+      <element name="getSessionReturn" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.hjy.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://session.ibatis.apache.org"/>
+   <complexType name="BooksModel">
+    <sequence>
+     <element name="author" nillable="true" type="xsd:string"/>
+     <element name="bId" type="xsd:int"/>
+     <element name="bookName" nillable="true" type="xsd:string"/>
+     <element name="category" nillable="true" type="xsd:string"/>
+     <element name="content" nillable="true" type="xsd:string"/>
+     <element name="count" nillable="true" type="xsd:string"/>
+     <element name="press" nillable="true" type="xsd:string"/>
+     <element name="price" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="mainRequest">
+
+      <wsdl:part element="impl:main" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainResponse">
+
+      <wsdl:part element="impl:mainResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllBooksInfoResponse">
+
+      <wsdl:part element="impl:getAllBooksInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSessionResponse">
+
+      <wsdl:part element="impl:getSessionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithAuthorResponse">
+
+      <wsdl:part element="impl:searchBooksWithAuthorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllCategoriesRequest">
+
+      <wsdl:part element="impl:getAllCategories" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postBooksInfoResponse">
+
+      <wsdl:part element="impl:postBooksInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginInResponse">
+
+      <wsdl:part element="impl:loginInResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithNameRequest">
+
+      <wsdl:part element="impl:searchBooksWithName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithAuthorRequest">
+
+      <wsdl:part element="impl:searchBooksWithAuthor" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllCategoriesResponse">
+
+      <wsdl:part element="impl:getAllCategoriesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBooksWithCategoryResponse">
+
+      <wsdl:part element="impl:getBooksWithCategoryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postBooksInfoRequest">
+
+      <wsdl:part element="impl:postBooksInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithNameResponse">
+
+      <wsdl:part element="impl:searchBooksWithNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllBooksInfoRequest">
+
+      <wsdl:part element="impl:getAllBooksInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginInRequest">
+
+      <wsdl:part element="impl:loginIn" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBooksWithCategoryRequest">
+
+      <wsdl:part element="impl:getBooksWithCategory" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSessionRequest">
+
+      <wsdl:part element="impl:getSession" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MyBatisTool">
+
+      <wsdl:operation name="main">
+
+         <wsdl:input message="impl:mainRequest" name="mainRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mainResponse" name="mainResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithAuthor">
+
+         <wsdl:input message="impl:searchBooksWithAuthorRequest" name="searchBooksWithAuthorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchBooksWithAuthorResponse" name="searchBooksWithAuthorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithName">
+
+         <wsdl:input message="impl:searchBooksWithNameRequest" name="searchBooksWithNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchBooksWithNameResponse" name="searchBooksWithNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBooksWithCategory">
+
+         <wsdl:input message="impl:getBooksWithCategoryRequest" name="getBooksWithCategoryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBooksWithCategoryResponse" name="getBooksWithCategoryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postBooksInfo">
+
+         <wsdl:input message="impl:postBooksInfoRequest" name="postBooksInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:postBooksInfoResponse" name="postBooksInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllBooksInfo">
+
+         <wsdl:input message="impl:getAllBooksInfoRequest" name="getAllBooksInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllBooksInfoResponse" name="getAllBooksInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginIn">
+
+         <wsdl:input message="impl:loginInRequest" name="loginInRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginInResponse" name="loginInResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllCategories">
+
+         <wsdl:input message="impl:getAllCategoriesRequest" name="getAllCategoriesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllCategoriesResponse" name="getAllCategoriesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSession">
+
+         <wsdl:input message="impl:getSessionRequest" name="getSessionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSessionResponse" name="getSessionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MyBatisToolSoapBinding" type="impl:MyBatisTool">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="main">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mainRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mainResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithAuthor">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchBooksWithAuthorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchBooksWithAuthorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchBooksWithNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchBooksWithNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBooksWithCategory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBooksWithCategoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBooksWithCategoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postBooksInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="postBooksInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="postBooksInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllBooksInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllBooksInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllBooksInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginIn">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginInRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginInResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllCategories">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllCategoriesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllCategoriesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSession">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSessionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSessionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MyBatisToolService">
+
+      <wsdl:port binding="impl:MyBatisToolSoapBinding" name="MyBatisTool">
+
+         <wsdlsoap:address location="http://localhost:8080/Bigbangbang/services/MyBatisTool"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

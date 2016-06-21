@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TestService WSDL service -->
+
+  <service name="Test" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://hjy.com"/>
+      <parameter name="wsdlServiceElement" value="TestService"/>
+      <parameter name="schemaQualified" value="http://hjy.com"/>
+      <parameter name="wsdlServicePort" value="Test"/>
+      <parameter name="className" value="com.hjy.Test"/>
+      <parameter name="wsdlPortType" value="Test"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://hjy.com" xmlns:retNS="http://hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="name" qname="operNS:name" returnQName="retNS:nameReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://hjy.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:age" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://hjy.com" xmlns:retNS="http://hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="say" qname="operNS:say" returnQName="retNS:sayReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://hjy.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:a" type="tns:int"/>
+        <parameter xmlns:pns="http://hjy.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:b" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="name say"/>
+
+  </service>
+</deployment>

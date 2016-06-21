@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://hjy.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://hjy.com" xmlns:intf="http://hjy.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://hjy.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="name">
+    <complexType>
+     <sequence>
+      <element name="age" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="nameResponse">
+    <complexType>
+     <sequence>
+      <element name="nameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="say">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:int"/>
+      <element name="b" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sayResponse">
+    <complexType>
+     <sequence>
+      <element name="sayReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="sayResponse">
+
+      <wsdl:part element="impl:sayResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sayRequest">
+
+      <wsdl:part element="impl:say" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="nameRequest">
+
+      <wsdl:part element="impl:name" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="nameResponse">
+
+      <wsdl:part element="impl:nameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Test">
+
+      <wsdl:operation name="name">
+
+         <wsdl:input message="impl:nameRequest" name="nameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:nameResponse" name="nameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="say">
+
+         <wsdl:input message="impl:sayRequest" name="sayRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sayResponse" name="sayResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TestSoapBinding" type="impl:Test">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="name">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="nameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="nameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="say">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sayRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sayResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TestService">
+
+      <wsdl:port binding="impl:TestSoapBinding" name="Test">
+
+         <wsdlsoap:address location="http://127.0.0.1:8080/Bigbangbang/services/Test"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

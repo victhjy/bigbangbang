@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hjy.model.LoginInInterface">
+
+    <select id="loginIn" parameterType="int" resultMap="map">
+        select * from mydb.userinfotable where schoolid=#{id};
+    </select>
+    <resultMap type="LoginIn" id="map">
+       <result column="userid" property="uid"/>
+       <result column="schoolid" property="schoolId"/>
+       <result column="pwd" property="password"/>
+       <result column="class" property="uclass"/>
+       <result column="phone" property="mobile"/>
+       <result column="name" property="uname"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MyBatisToolService WSDL service -->
+
+  <service name="MyBatisTool" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.hjy.com"/>
+      <parameter name="wsdlServiceElement" value="MyBatisToolService"/>
+      <parameter name="schemaQualified" value="http://service.hjy.com,http://model.hjy.com"/>
+      <parameter name="wsdlServicePort" value="MyBatisTool"/>
+      <parameter name="className" value="com.hjy.service.MyBatisTool"/>
+      <parameter name="wsdlPortType" value="MyBatisTool"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.hjy.com" name="main" qname="operNS:main" soapAction="">
+        <parameter xmlns:pns="http://service.hjy.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:argvs" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.hjy.com" xmlns:retNS="http://service.hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchBooksWithAuthor" qname="operNS:searchBooksWithAuthor" returnQName="retNS:searchBooksWithAuthorReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.hjy.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:author" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.hjy.com" xmlns:retNS="http://service.hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchBooksWithName" qname="operNS:searchBooksWithName" returnQName="retNS:searchBooksWithNameReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.hjy.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:bookName" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.hjy.com" xmlns:retNS="http://service.hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getBooksWithCategory" qname="operNS:getBooksWithCategory" returnQName="retNS:getBooksWithCategoryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.hjy.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:category" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.hjy.com" xmlns:retNS="http://service.hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="postBooksInfo" qname="operNS:postBooksInfo" returnQName="retNS:postBooksInfoReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.hjy.com" xmlns:tns="http://model.hjy.com" qname="pns:model" type="tns:BooksModel"/>
+      </operation>
+      <operation xmlns:operNS="http://service.hjy.com" xmlns:retNS="http://service.hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAllBooksInfo" qname="operNS:getAllBooksInfo" returnQName="retNS:getAllBooksInfoReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://service.hjy.com" xmlns:retNS="http://service.hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="loginIn" qname="operNS:loginIn" returnQName="retNS:loginInReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://service.hjy.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+        <parameter xmlns:pns="http://service.hjy.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.hjy.com" xmlns:retNS="http://service.hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAllCategories" qname="operNS:getAllCategories" returnQName="retNS:getAllCategoriesReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://service.hjy.com" xmlns:retNS="http://service.hjy.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getSession" qname="operNS:getSession" returnQName="retNS:getSessionReturn" returnType="rtns:anyType" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="getBooksWithCategory searchBooksWithName searchBooksWithAuthor loginIn main getAllCategories postBooksInfo getSession getAllBooksInfo"/>
+
+      <typeMapping xmlns:ns="http://model.hjy.com" qname="ns:BooksModel" type="java:com.hjy.model.BooksModel" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

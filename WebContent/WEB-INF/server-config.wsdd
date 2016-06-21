@@ -1,0 +1,119 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="/Users/hjy/Documents/newWorkspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/NewTest/WEB-INF/attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="Test" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="name" qname="ns1:name" returnQName="ns1:nameReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:age" type="xsd:int"/>
+  </ns2:operation>
+  <ns1:operation name="say" qname="ns2:say" returnQName="ns2:sayReturn" returnType="xsd:int" soapAction="" xmlns:ns2="http://hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:a" type="xsd:int"/>
+   <ns1:parameter qname="ns2:b" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="sendMultiRefs" value="false"/>
+  <ns1:parameter name="wsdlServicePort" value="Test"/>
+  <ns1:parameter name="schemaQualified" value="http://hjy.com"/>
+  <ns1:parameter name="className" value="com.hjy.Test"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="allowedMethods" value="name say"/>
+  <ns1:parameter name="wsdlPortType" value="Test"/>
+  <ns1:parameter name="wsdlServiceElement" value="TestService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://hjy.com"/>
+  <ns1:parameter name="sendXsiTypes" value="false"/>
+ </ns1:service>
+ <ns1:service name="AllApi" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getMyFavBooksList" qname="ns3:getMyFavBooksList" returnQName="ns3:getMyFavBooksListReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:userId" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="searchBooksWithISBN" qname="ns4:searchBooksWithISBN" returnQName="ns4:searchBooksWithISBNReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:isbn13" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="searchBooksWithAuthor" qname="ns5:searchBooksWithAuthor" returnQName="ns5:searchBooksWithAuthorReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:author" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="searchBooksWithTitle" qname="ns6:searchBooksWithTitle" returnQName="ns6:searchBooksWithTitleReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:bookName" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getMyBorrowBooksList" qname="ns7:getMyBorrowBooksList" returnQName="ns7:getMyBorrowBooksListReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:userid" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="renew" qname="ns8:renew" returnQName="ns8:renewReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:bookId" type="xsd:string"/>
+   <ns1:parameter qname="ns8:time" type="xsd:string"/>
+   <ns1:parameter qname="ns8:userId" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="addMyFav" qname="ns9:addMyFav" returnQName="ns9:addMyFavReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:bookId" type="xsd:string"/>
+   <ns1:parameter qname="ns9:userId" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="deleteMyFav" qname="ns10:deleteMyFav" returnQName="ns10:deleteMyFavReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:userId" type="xsd:string"/>
+   <ns1:parameter qname="ns10:bookId" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getRankBooks" qname="ns11:getRankBooks" returnQName="ns11:getRankBooksReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="getLibraryBoard" qname="ns12:getLibraryBoard" returnQName="ns12:getLibraryBoardReturn" returnType="xsd:string" soapAction="" xmlns:ns12="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="getUserModel" qname="ns13:getUserModel" returnQName="ns13:getUserModelReturn" returnType="xsd:string" soapAction="" xmlns:ns13="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns13:schoolId" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getAllBooksInfo" qname="ns14:getAllBooksInfo" returnQName="ns14:getAllBooksInfoReturn" returnType="xsd:string" soapAction="" xmlns:ns14="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="loginIn" qname="ns15:loginIn" returnQName="ns15:loginInReturn" returnType="xsd:string" soapAction="" xmlns:ns15="http://service.hjy.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns15:password" type="xsd:string"/>
+   <ns1:parameter qname="ns15:schoolId" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="deleteMyFav getUserModel searchBooksWithTitle searchBooksWithAuthor loginIn getAllBooksInfo getMyBorrowBooksList getLibraryBoard addMyFav searchBooksWithISBN renew getRankBooks getMyFavBooksList"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="AllApi"/>
+  <ns1:parameter name="className" value="com.hjy.service.AllApi"/>
+  <ns1:parameter name="wsdlServicePort" value="AllApi"/>
+  <ns1:parameter name="schemaQualified" value="http://service.hjy.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://service.hjy.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="AllApiService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

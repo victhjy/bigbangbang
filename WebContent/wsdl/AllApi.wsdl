@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.hjy.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.hjy.com" xmlns:intf="http://service.hjy.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.hjy.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getMyFavBooksList">
+    <complexType>
+     <sequence>
+      <element name="userId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMyFavBooksListResponse">
+    <complexType>
+     <sequence>
+      <element name="getMyFavBooksListReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBooksWithISBN">
+    <complexType>
+     <sequence>
+      <element name="isbn13" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBooksWithISBNResponse">
+    <complexType>
+     <sequence>
+      <element name="searchBooksWithISBNReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBooksWithAuthor">
+    <complexType>
+     <sequence>
+      <element name="author" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBooksWithAuthorResponse">
+    <complexType>
+     <sequence>
+      <element name="searchBooksWithAuthorReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBooksWithTitle">
+    <complexType>
+     <sequence>
+      <element name="bookName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchBooksWithTitleResponse">
+    <complexType>
+     <sequence>
+      <element name="searchBooksWithTitleReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMyBorrowBooksList">
+    <complexType>
+     <sequence>
+      <element name="userid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMyBorrowBooksListResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getMyBorrowBooksListReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="renew">
+    <complexType>
+     <sequence>
+      <element name="bookId" type="xsd:string"/>
+      <element name="time" type="xsd:string"/>
+      <element name="userId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="renewResponse">
+    <complexType>
+     <sequence>
+      <element name="renewReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addMyFav">
+    <complexType>
+     <sequence>
+      <element name="bookId" type="xsd:string"/>
+      <element name="userId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addMyFavResponse">
+    <complexType>
+     <sequence>
+      <element name="addMyFavReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteMyFav">
+    <complexType>
+     <sequence>
+      <element name="userId" type="xsd:string"/>
+      <element name="bookId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteMyFavResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteMyFavReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRankBooks">
+    <complexType/>
+   </element>
+   <element name="getRankBooksResponse">
+    <complexType>
+     <sequence>
+      <element name="getRankBooksReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getLibraryBoard">
+    <complexType/>
+   </element>
+   <element name="getLibraryBoardResponse">
+    <complexType>
+     <sequence>
+      <element name="getLibraryBoardReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserModel">
+    <complexType>
+     <sequence>
+      <element name="schoolId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserModelResponse">
+    <complexType>
+     <sequence>
+      <element name="getUserModelReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllBooksInfo">
+    <complexType/>
+   </element>
+   <element name="getAllBooksInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllBooksInfoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginIn">
+    <complexType>
+     <sequence>
+      <element name="password" type="xsd:string"/>
+      <element name="schoolId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginInResponse">
+    <complexType>
+     <sequence>
+      <element name="loginInReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getAllBooksInfoResponse">
+
+      <wsdl:part element="impl:getAllBooksInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRankBooksResponse">
+
+      <wsdl:part element="impl:getRankBooksResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteMyFavResponse">
+
+      <wsdl:part element="impl:deleteMyFavResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRankBooksRequest">
+
+      <wsdl:part element="impl:getRankBooks" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMyFavRequest">
+
+      <wsdl:part element="impl:addMyFav" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="renewRequest">
+
+      <wsdl:part element="impl:renew" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getLibraryBoardRequest">
+
+      <wsdl:part element="impl:getLibraryBoard" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithISBNRequest">
+
+      <wsdl:part element="impl:searchBooksWithISBN" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMyFavBooksListRequest">
+
+      <wsdl:part element="impl:getMyFavBooksList" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMyFavBooksListResponse">
+
+      <wsdl:part element="impl:getMyFavBooksListResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMyBorrowBooksListResponse">
+
+      <wsdl:part element="impl:getMyBorrowBooksListResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithTitleResponse">
+
+      <wsdl:part element="impl:searchBooksWithTitleResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginInRequest">
+
+      <wsdl:part element="impl:loginIn" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMyFavResponse">
+
+      <wsdl:part element="impl:addMyFavResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithAuthorResponse">
+
+      <wsdl:part element="impl:searchBooksWithAuthorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserModelRequest">
+
+      <wsdl:part element="impl:getUserModel" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithISBNResponse">
+
+      <wsdl:part element="impl:searchBooksWithISBNResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginInResponse">
+
+      <wsdl:part element="impl:loginInResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithAuthorRequest">
+
+      <wsdl:part element="impl:searchBooksWithAuthor" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getLibraryBoardResponse">
+
+      <wsdl:part element="impl:getLibraryBoardResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMyBorrowBooksListRequest">
+
+      <wsdl:part element="impl:getMyBorrowBooksList" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserModelResponse">
+
+      <wsdl:part element="impl:getUserModelResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchBooksWithTitleRequest">
+
+      <wsdl:part element="impl:searchBooksWithTitle" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="renewResponse">
+
+      <wsdl:part element="impl:renewResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteMyFavRequest">
+
+      <wsdl:part element="impl:deleteMyFav" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllBooksInfoRequest">
+
+      <wsdl:part element="impl:getAllBooksInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="AllApi">
+
+      <wsdl:operation name="getMyFavBooksList">
+
+         <wsdl:input message="impl:getMyFavBooksListRequest" name="getMyFavBooksListRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMyFavBooksListResponse" name="getMyFavBooksListResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithISBN">
+
+         <wsdl:input message="impl:searchBooksWithISBNRequest" name="searchBooksWithISBNRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchBooksWithISBNResponse" name="searchBooksWithISBNResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithAuthor">
+
+         <wsdl:input message="impl:searchBooksWithAuthorRequest" name="searchBooksWithAuthorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchBooksWithAuthorResponse" name="searchBooksWithAuthorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithTitle">
+
+         <wsdl:input message="impl:searchBooksWithTitleRequest" name="searchBooksWithTitleRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchBooksWithTitleResponse" name="searchBooksWithTitleResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMyBorrowBooksList">
+
+         <wsdl:input message="impl:getMyBorrowBooksListRequest" name="getMyBorrowBooksListRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMyBorrowBooksListResponse" name="getMyBorrowBooksListResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="renew">
+
+         <wsdl:input message="impl:renewRequest" name="renewRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:renewResponse" name="renewResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addMyFav">
+
+         <wsdl:input message="impl:addMyFavRequest" name="addMyFavRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addMyFavResponse" name="addMyFavResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteMyFav">
+
+         <wsdl:input message="impl:deleteMyFavRequest" name="deleteMyFavRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteMyFavResponse" name="deleteMyFavResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRankBooks">
+
+         <wsdl:input message="impl:getRankBooksRequest" name="getRankBooksRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getRankBooksResponse" name="getRankBooksResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getLibraryBoard">
+
+         <wsdl:input message="impl:getLibraryBoardRequest" name="getLibraryBoardRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getLibraryBoardResponse" name="getLibraryBoardResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserModel">
+
+         <wsdl:input message="impl:getUserModelRequest" name="getUserModelRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUserModelResponse" name="getUserModelResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllBooksInfo">
+
+         <wsdl:input message="impl:getAllBooksInfoRequest" name="getAllBooksInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllBooksInfoResponse" name="getAllBooksInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginIn">
+
+         <wsdl:input message="impl:loginInRequest" name="loginInRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginInResponse" name="loginInResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="AllApiSoapBinding" type="impl:AllApi">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getMyFavBooksList">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMyFavBooksListRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMyFavBooksListResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithISBN">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchBooksWithISBNRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchBooksWithISBNResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithAuthor">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchBooksWithAuthorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchBooksWithAuthorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchBooksWithTitle">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchBooksWithTitleRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchBooksWithTitleResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMyBorrowBooksList">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMyBorrowBooksListRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMyBorrowBooksListResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="renew">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="renewRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="renewResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addMyFav">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addMyFavRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addMyFavResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteMyFav">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteMyFavRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteMyFavResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRankBooks">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getRankBooksRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getRankBooksResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getLibraryBoard">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getLibraryBoardRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getLibraryBoardResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserModel">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserModelRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserModelResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllBooksInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllBooksInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllBooksInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginIn">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginInRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginInResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="AllApiService">
+
+      <wsdl:port binding="impl:AllApiSoapBinding" name="AllApi">
+
+         <wsdlsoap:address location="http://localhost:8080/Bigbangbang/services/AllApi"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

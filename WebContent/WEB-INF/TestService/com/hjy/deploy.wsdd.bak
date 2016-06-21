@@ -1,0 +1,33 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TestService WSDL service -->
+
+  <service name="Test" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://hjy.com"/>
+      <parameter name="wsdlServiceElement" value="TestService"/>
+      <parameter name="schemaQualified" value="http://hjy.com"/>
+      <parameter name="wsdlServicePort" value="Test"/>
+      <parameter name="className" value="com.hjy.TestSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Test"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="name" qname="operNS:name" xmlns:operNS="http://hjy.com" returnQName="retNS:nameReturn" xmlns:retNS="http://hjy.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:age" xmlns:pns="http://hjy.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="say" qname="operNS:say" xmlns:operNS="http://hjy.com" returnQName="retNS:sayReturn" xmlns:retNS="http://hjy.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:a" xmlns:pns="http://hjy.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:b" xmlns:pns="http://hjy.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="name say"/>
+
+  </service>
+</deployment>
